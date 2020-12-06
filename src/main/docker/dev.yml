@@ -1,0 +1,10 @@
+appreservation-dev-postgresql:
+  container_name: appreservation-dev-postgresql
+  image: postgres:9.4.5
+  # volumes:
+  #   - ~/volumes/jhipster/Appreservation/dev-postgresql/:/var/lib/postgresql/
+  environment:
+    - POSTGRES_USER=Appreservation
+    - POSTGRES_PASSWORD=
+  ports:
+    - "5432:5432"

@@ -1,0 +1,22 @@
+{
+  "generator-jhipster": {
+    "baseName": "Appreservation",
+    "packageName": "com.app.booking",
+    "packageFolder": "com/app/booking",
+    "authenticationType": "session",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": true,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "2937351f363ef4c49676eab1fa9cac833babcb1a",
+    "testFrameworks": []
+  }
+}

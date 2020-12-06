@@ -1,0 +1,24 @@
+{
+    "appreservationApp": {
+        "costumer" : {
+            "home": {
+                "title": "Costumers",
+                "createLabel": "Créer un nouveau Costumer",
+                "createOrEditLabel": "Créer ou éditer un Costumer",
+                "search": "Search for Costumer"
+            },
+            "created": "Un nouveau Costumer a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Costumer avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Costumer avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Costumer {{ id }} ?"
+            },
+            "detail": {
+                "title": "Costumer"
+            },
+            "namaCostumer": "NamaCostumer",
+            "createDate": "CreateDate"
+        }
+    }
+}
+

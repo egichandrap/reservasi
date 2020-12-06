@@ -1,0 +1,115 @@
+<div>
+    <h2 translate="appreservationApp.reservation.home.title">Reservations</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sm-12">
+                <div class="col-sm-4">
+                    <button class="btn btn-primary" ui-sref="reservation.new">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <span
+                            translate="appreservationApp.reservation.home.createLabel">Create new Reservation
+                        </span>
+                    </button>
+                </div>
+                <!--                <div class="col-sm-2" style="padding-left:100px;">-->
+                <!--&lt;!&ndash;                    <div class="btn-group" uib-dropdown on-toggle="toggleDropDown(open)">&ndash;&gt;-->
+                <!--&lt;!&ndash;                        <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle>&ndash;&gt;-->
+                <!--&lt;!&ndash;                            {{selectedFilter}} <span class="glyphicon glyphicon-menu-down"></span>&ndash;&gt;-->
+                <!--&lt;!&ndash;                        </button>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">&ndash;&gt;-->
+                <!--&lt;!&ndash;                            <li role="menuitem" ng-repeat="filter in filters" ng-click="setFilterValue(filter)">&ndash;&gt;-->
+                <!--&lt;!&ndash;                                <a href="javascript:void(0)">{{filter}}</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;                            </li>&ndash;&gt;-->
+                <!--&lt;!&ndash;                        </ul>&ndash;&gt;-->
+
+                <!--                    <div class="btn-group" uib-dropdown is-open="status.isopen">-->
+                <!--                        <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle>-->
+                <!--                            {{cari.kolom}} <span class="caret"></span>-->
+                <!--                        </button>-->
+                <!--                        <ul class = "dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">-->
+                <!--                            <li role="menuitem" ng-repeat="filter in filters" ng-click="setFilterValue(filter)">-->
+                <!--                            </li>-->
+                <!--                        </ul>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <div class="col-sm-4" style="padding-right: 0px;">-->
+                <!--                    <input type="text" class="form-control" placeholder="Search ...">-->
+                <!--                </div>-->
+                <!--                <div class="col-sm-2" style="padding-left: 0px;">-->
+                <!--                    <div class="input-group">-->
+                <!--                        <div class="input-group-append">-->
+                <!--                            <button class="btn btn-primary" type="button">-->
+                <!--                                <i class="glyphicon glyphicon-search"></i>-->
+                <!--                            </button>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="costumerId"><span translate="appreservationApp.reservation.costumer">costumer</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="roomId"><span translate="appreservationApp.reservation.room">room</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="startDate"><span translate="appreservationApp.reservation.startDate">StartDate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="endDate"><span translate="appreservationApp.reservation.endDate">EndDate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="keterangan"><span translate="appreservationApp.reservation.keterangan">Keterangan</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createBy"><span translate="appreservationApp.reservation.createBy">CreateBy</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createDate"><span translate="appreservationApp.reservation.createDate">CreateDate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status"><span translate="appreservationApp.reservation.status">status<span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="reservation in reservations track by reservation.id">
+                    <td><a ui-sref="reservation.detail({id:reservation.id})">{{reservation.id}}</a></td>
+                    <td>
+                        <a ui-sref="costumer.detail({id:reservation.costumerId})">{{reservation.namaCostumer}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="room.detail({id:reservation.roomId})">{{reservation.namaRoom}}</a>
+                    </td>
+                    <td>{{reservation.startDate | date:'medium'}}</td>
+                    <td>{{reservation.endDate | date:'medium'}}</td>
+                    <td>{{reservation.keterangan}}</td>
+                    <td>{{reservation.createBy}}</td>
+                    <td>{{reservation.createDate | date:'medium'}}</td>
+                    <td>{{reservation.status}}</td>
+
+                    <!--                    <td>{{reservation.status}}</td>-->
+<!--                    <td style="text-align:center;">-->
+<!--                        <button class="btn btn-primary" ng-model="reservation.status" value="APPROVE" style="margin-bottom:5px">APPROVE-->
+<!--                        </button>-->
+<!--                        <button class="btn btn-danger" ng-model="reservation.status" value="REJECT" style="margin-bottom:5px">REJECT-->
+<!--                        </button>-->
+<!--                    </td>-->
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit" ui-sref="reservation.detail({id:reservation.id})" class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit" ui-sref="reservation.edit({id:reservation.id})" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit" ui-sref="reservation.delete({id:reservation.id})" class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
+</div>

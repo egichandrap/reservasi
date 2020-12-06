@@ -1,0 +1,63 @@
+<div>
+    <h2 translate="appreservationApp.room.home.title">Rooms</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="room.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                        translate="appreservationApp.room.home.createLabel">Create new Room
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="namaRoom"><span translate="appreservationApp.room.namaRoom">NamaRoom</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tipeRoom"><span translate="appreservationApp.room.tipeRoom">TipeRoom</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="kapasitasRoom"><span translate="appreservationApp.room.kapasitasRoom">KapasitasRoom</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="room in rooms track by room.id">
+                    <td><a ui-sref="room.detail({id:room.id})">{{room.id}}</a></td>
+                    <td>{{room.namaRoom}}</td>
+                    <td>{{room.tipeRoom}}</td>
+                    <td>{{room.kapasitasRoom}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="room.detail({id:room.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="room.edit({id:room.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="room.delete({id:room.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
+</div>

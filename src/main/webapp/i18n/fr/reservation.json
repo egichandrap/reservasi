@@ -1,0 +1,29 @@
+{
+    "appreservationApp": {
+        "reservation" : {
+            "home": {
+                "title": "Reservations",
+                "createLabel": "Créer un nouveau Reservation",
+                "createOrEditLabel": "Créer ou éditer un Reservation",
+                "search": "Search for Reservation"
+            },
+            "created": "Un nouveau Reservation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Reservation avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Reservation avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Reservation {{ id }} ?"
+            },
+            "detail": {
+                "title": "Reservation"
+            },
+            "startDate": "StartDate",
+            "endDate": "EndDate",
+            "keterangan": "Keterangan",
+            "createBy": "CreateBy",
+            "createDate": "CreateDate",
+            "costumer": "Costumer",
+            "room": "Room"
+        }
+    }
+}
+

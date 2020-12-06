@@ -1,0 +1,70 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myRoomLabel" translate="appreservationApp.room.home.createOrEditLabel">Create or edit a Room</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+<!--        <div class="form-group">-->
+<!--            <label for="id" translate="global.field.id">ID</label>-->
+<!--            <input type="text" class="form-control" id="id" name="id"-->
+<!--                    ng-model="room.id" readonly />-->
+<!--        </div>-->
+        <div class="form-group">
+            <label class="control-label" translate="appreservationApp.room.namaRoom" for="field_namaRoom">NamaRoom</label>
+            <input type="text" class="form-control" name="namaRoom" id="field_namaRoom"
+                    ng-model="room.namaRoom"
+                    required ng-maxlength="50" />
+            <div ng-show="editForm.namaRoom.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.namaRoom.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.namaRoom.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="appreservationApp.room.tipeRoom" for="field_tipeRoom">TipeRoom</label>
+            <input type="text" class="form-control" name="tipeRoom" id="field_tipeRoom"
+                    ng-model="room.tipeRoom"
+                    required ng-maxlength="50" />
+            <div ng-show="editForm.tipeRoom.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.tipeRoom.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.tipeRoom.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="appreservationApp.room.kapasitasRoom" for="field_kapasitasRoom">KapasitasRoom</label>
+            <input type="text" class="form-control" name="kapasitasRoom" id="field_kapasitasRoom"
+                    ng-model="room.kapasitasRoom"
+                    ng-maxlength="5" />
+            <div ng-show="editForm.kapasitasRoom.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.kapasitasRoom.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="5">
+                    This field cannot be longer than 5 characters.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

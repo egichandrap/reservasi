@@ -1,0 +1,108 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myReservationLabel" translate="appreservationApp.reservation.home.createOrEditLabel">Create or edit a Reservation</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+<!--        <div class="form-group">-->
+<!--            <label for="id" translate="global.field.id">ID</label>-->
+<!--            <input type="text" class="form-control" id="id" name="id"-->
+<!--                    ng-model="reservation.id" readonly />-->
+<!--        </div>-->
+        <div class="form-group">
+            <label translate="appreservationApp.reservation.costumer" for="field_costumer">costumer</label>
+            <select class="form-control" id="field_costumer" name="costumer" ng-model="reservation.costumerId" ng-options="costumer.id as costumer.namaCostumer for costumer in costumers">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="appreservationApp.reservation.room" for="field_room">room</label>
+            <select class="form-control" id="field_room" name="room" ng-model="reservation.roomId" ng-options="room.id as room.namaRoom for room in rooms">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="appreservationApp.reservation.startDate" for="field_startDate">StartDate</label>
+            <input type="datetime-local" class="form-control" name="startDate" id="field_startDate"
+                    ng-model="reservation.startDate"
+                    required />
+            <div ng-show="editForm.startDate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.startDate.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.startDate.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="appreservationApp.reservation.endDate" for="field_endDate">EndDate</label>
+            <input type="datetime-local" class="form-control" name="endDate" id="field_endDate"
+                    ng-model="reservation.endDate"
+                    required />
+            <div ng-show="editForm.endDate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.endDate.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.endDate.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="appreservationApp.reservation.keterangan" for="field_keterangan">Keterangan</label>
+            <input type="text" class="form-control" name="keterangan" id="field_keterangan"
+                    ng-model="reservation.keterangan"
+                    required ng-maxlength="500" />
+            <div ng-show="editForm.keterangan.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.keterangan.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.keterangan.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="500">
+                    This field cannot be longer than 500 characters.
+                </p>
+            </div>
+        </div>
+<!--        <div class="form-group">-->
+<!--            <label class="control-label" translate="appreservationApp.reservation.createBy" for="field_createBy">CreateBy</label>-->
+<!--            <input type="text" class="form-control" name="createBy" id="field_createBy"-->
+<!--                    ng-model="reservation.createBy"-->
+<!--                     />-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label class="control-label" translate="appreservationApp.reservation.createDate" for="field_createDate">CreateDate</label>-->
+<!--            <input type="datetime-local" class="form-control" name="createDate" id="field_createDate"-->
+<!--                    ng-model="reservation.createDate"-->
+<!--                     />-->
+<!--        </div>-->
+
+        <div class="form-group" has-authority="ROLE_ADMIN">
+            <!-- <input type="number" class="form-control" name="status" id="field_status" ng-model="reservation.status" /> -->
+            <label class="control-label" translate="appreservationApp.reservation.status" for="field_status">Status</label>
+            <select class="form-control" id="field_status" name="status" ng-model="reservation.status">
+                <option value="APPROVE">APPROVE</option>
+                <option value="REJECT">REJECT</option>
+                <!-- <option ng-repeat="(index, state) in statusValue" ng-value="+index">{{state}}</option> -->
+            </select>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
