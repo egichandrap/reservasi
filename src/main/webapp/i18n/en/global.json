@@ -1,6 +1,6 @@
 {
     "global": {
-        "title": "Appreservation",
+        "title": "Reservation",
         "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
         "menu": {
             "home": "Home",
@@ -11,6 +11,16 @@
                 "room": "Room",
                 "reservation": "Reservation",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+            },
+            "reservation": {
+                "startDate": "StartDate",
+                "endDate": "EndDate",
+                "keterangan": "Keterangan",
+                "createBy": "CreateBy",
+                "createDate": "CreateDate",
+                "costumer": "Costumer",
+                "room": "Room",
+                "status": "Status"
             },
             "account": {
                 "main": "Account",
@@ -87,7 +97,9 @@
             "delete": "Delete",
             "edit": "Edit",
             "save": "Save",
-            "view": "View"
+            "view": "View",
+            "approve": "Approve",
+            "reject": "Reject"
         },
         "detail": {
             "field": "Field",

@@ -68,6 +68,7 @@ public class ReservationServiceImpl implements ReservationService{
                 throw new IllegalArgumentException(validation.getError());
             }
         }
+        //
         if(reservation.getId() == null) {
             reservation.setStatus("PENDING");
         }

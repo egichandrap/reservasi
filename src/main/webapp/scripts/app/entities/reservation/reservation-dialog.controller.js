@@ -23,16 +23,6 @@ angular.module('appreservationApp').controller('ReservationDialogController', ['
         };
 
         $scope.save = function() {
-//        const { account } = $rootScope;
-//        const { reservation } = this;
-//        console.log("account "+ account);
-//
-//        if (reservation.createBy === null) {
-//            $scope.reservation.createBy = account.login;
-//        }
-//        else if (reservation.roomUpdateInfo !== null) {
-//            $scope.reservation.roomUpdateInfo = null;
-//        }
             $scope.isSaving = true;
             if ($scope.reservation.id != null) {
                 Reservation.update($scope.reservation, onSaveSuccess, onSaveError);

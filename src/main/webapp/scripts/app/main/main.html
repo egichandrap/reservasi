@@ -1,4 +1,51 @@
-<!--<div ng-cloak>-->
+<div>
+    <div class="container-fluid">
+        <div class="input-group mt-3 mb-3">
+            <div class="input-group-prepend">
+                <button type="button" class="btn btn-primary" data-toggle="dropdown">
+                    Dropdown button
+                </button>
+                <select class="dropdown-menu">
+                    <option href="#">Link 1</option>
+                    <option href="#">Link 2</option>
+                    <option href="#">Link 3</option>
+                </select>
+                <input type="text" class="form-control" placeholder="Username">
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+            <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="costumerId"><span translate="global.menu.reservation.costumer"> Costumer </span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="roomId"><span translate="global.menu.reservation.room"> Room </span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="startDate"><span translate="global.menu.reservation.startDate"> StartDate </span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="endDate"><span translate="global.menu.reservation.endDate"> EndDate </span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="keterangan"><span translate="global.menu.reservation.keterangan"> Keterangan </span> <span class="glyphicon glyphicon-sort"></span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="reservation in reservations track by reservation.id">
+                <td><a ui-sref="reservation.detail({id:reservation.id})">{{reservation.id}}</a></td>
+                <td>{{reservation.namaCostumer}}</td>
+                <td>{{reservation.namaRoom}}</td>
+                <td>{{reservation.startDate | date:'medium'}}</td>
+                <td>{{reservation.endDate | date:'medium'}}</td>
+                <td>{{reservation.keterangan}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+            <!--<div ng-cloak>-->
 <!--    <div class="row">-->
 <!--        <div class="col-md-4">-->
 <!--            <span class="hipster img-responsive img-rounded"></span>-->

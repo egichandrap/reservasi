@@ -3,15 +3,11 @@
     <jh-alert></jh-alert>
     <div class="container-fluid">
         <div class="row">
-            <div class="sm-12">
-                <div class="col-sm-4">
-                    <button class="btn btn-primary" ui-sref="reservation.new">
-                        <span class="glyphicon glyphicon-plus"></span>
-                        <span
-                            translate="appreservationApp.reservation.home.createLabel">Create new Reservation
-                        </span>
-                    </button>
-                </div>
+            <button class="btn btn-primary" ui-sref="reservation.new">
+                <span class="glyphicon glyphicon-plus"></span>
+                <span translate="appreservationApp.reservation.home.createLabel">Create new Reservation</span>
+            </button>
+        </div>
                 <!--                <div class="col-sm-2" style="padding-left:100px;">-->
                 <!--&lt;!&ndash;                    <div class="btn-group" uib-dropdown on-toggle="toggleDropDown(open)">&ndash;&gt;-->
                 <!--&lt;!&ndash;                        <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle>&ndash;&gt;-->
@@ -46,8 +42,6 @@
                 <!--                        </div>-->
                 <!--                    </div>-->
                 <!--                </div>-->
-            </div>
-        </div>
     </div>
     <br/>
     <div class="table-responsive">
@@ -55,32 +49,29 @@
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="costumerId"><span translate="appreservationApp.reservation.costumer">costumer</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="roomId"><span translate="appreservationApp.reservation.room">room</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="startDate"><span translate="appreservationApp.reservation.startDate">StartDate</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="endDate"><span translate="appreservationApp.reservation.endDate">EndDate</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="keterangan"><span translate="appreservationApp.reservation.keterangan">Keterangan</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="createBy"><span translate="appreservationApp.reservation.createBy">CreateBy</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="createDate"><span translate="appreservationApp.reservation.createDate">CreateDate</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="status"><span translate="appreservationApp.reservation.status">status<span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
+                    <th jh-sort-by="costumerId"><span translate="appreservationApp.reservation.costumer"> Costumer </span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="roomId"><span translate="appreservationApp.reservation.room"> Room </span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="startDate"><span translate="appreservationApp.reservation.startDate"> StartDate </span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="endDate"><span translate="appreservationApp.reservation.endDate"> EndDate </span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="keterangan"><span translate="appreservationApp.reservation.keterangan"> Keterangan </span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createBy"><span translate="appreservationApp.reservation.createBy"> CreateBy </span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createDate"><span translate="appreservationApp.reservation.createDate"> CreateDate </span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status"><span translate="appreservationApp.reservation.status"> Status </span> <span class="glyphicon glyphicon-sort"></span></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="reservation in reservations track by reservation.id">
                     <td><a ui-sref="reservation.detail({id:reservation.id})">{{reservation.id}}</a></td>
-                    <td>
-                        <a ui-sref="costumer.detail({id:reservation.costumerId})">{{reservation.namaCostumer}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="room.detail({id:reservation.roomId})">{{reservation.namaRoom}}</a>
-                    </td>
+                    <td>{{reservation.namaCostumer}}</td>
+                    <td>{{reservation.namaRoom}}</td>
                     <td>{{reservation.startDate | date:'medium'}}</td>
                     <td>{{reservation.endDate | date:'medium'}}</td>
                     <td>{{reservation.keterangan}}</td>
                     <td>{{reservation.createBy}}</td>
                     <td>{{reservation.createDate | date:'medium'}}</td>
-                    <td>{{reservation.status}}</td>
+                    <td>
+                        <div class="label label-default" style="padding:5px; margin:5px;">{{reservation.status}}</div>
+                    </td>
 
                     <!--                    <td>{{reservation.status}}</td>-->
 <!--                    <td style="text-align:center;">-->
@@ -91,7 +82,7 @@
 <!--                    </td>-->
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit" ui-sref="reservation.detail({id:reservation.id})" class="btn btn-info btn-sm">
+                            <button type="submit" has-authority="ROLE_ADMIN" ui-sref="reservation.detail({id:reservation.id})" class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
