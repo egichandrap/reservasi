@@ -46,6 +46,16 @@ angular.module('appreservationApp')
             $scope.clear();
         };
 
+//        $scope.approve = function(request){
+//        var currentUserComment = request.comments.filter(function(comm)
+//        return comm.userId == user.id && comm.status == "Pending";
+//        })[0];
+//        currentUserComment.status = State.APPROVED; // change comments Status
+//        Comments.update(currentUserComment, function() { // send PUT request to API
+//        // $rootScope.$broadcast('daysUpdated');
+//        });
+//        }
+
         $scope.clear = function () {
             $scope.reservation = {
                 startDate: null,
@@ -56,16 +66,4 @@ angular.module('appreservationApp')
                 id: null
             };
         };
-
-//        $scope.approveReservation = function(reservation){
-//            $http.get("/reservations/approve/"+ reservation.id).success(function(data){
-//                alert("Approved!" + data);
-//            });
-//        }
-//
-//        $scope.rejectReservation = function(reservation){
-//            $http.get("/reservations/reject/"+ reservation.id).success(function(data){
-//                alert("Rejected!" + data);
-//            });
-//        }
     });

@@ -23,7 +23,7 @@ spring:
         url: jdbc:postgresql://localhost:5432/res
         name:
         username: postgres
-        password: root
+        password: katasandi1997
     jpa:
         database-platform: com.app.booking.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL

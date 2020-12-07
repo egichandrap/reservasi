@@ -14,17 +14,13 @@
                 <td>
                     <span translate="appreservationApp.reservation.costumer">costumer</span>
                 </td>
-                <td>
-                    <a class="form-control-static" ui-sref="costumer.detail({id:reservation.costumerId})">{{reservation.namaCostumer}}</a>
-                </td>
+                <td>{{reservation.namaCostumer}}</td>
             </tr>
             <tr>
                 <td>
                     <span translate="appreservationApp.reservation.room">room</span>
                 </td>
-                <td>
-                    <a class="form-control-static" ui-sref="room.detail({id:reservation.roomId})">{{reservation.namaRoom}}</a>
-                </td>
+                <td>{{reservation.namaRoom}}</td>
             </tr>
             <tr>
                 <td>
@@ -76,12 +72,12 @@
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
     </button>
     <button type="submit"
-            onclick="window.history.back()"
+            onclick="window.history.approve()"
             class="btn btn-success">
         <span class="glyphicon glyphicon-ok"></span>&nbsp;<span translate="entity.action.approve"> Approve</span>
     </button>
     <button type="submit"
-            onclick="window.history.back()"
+            onclick="window.history.reject()"
             class="btn btn-danger">
         <span class="glyphicon glyphicon-remove"></span>&nbsp;<span translate="entity.action.reject"> Reject</span>
     </button>

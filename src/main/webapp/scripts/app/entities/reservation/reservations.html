@@ -49,7 +49,7 @@
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="costumerId"><span translate="appreservationApp.reservation.costumer"> Costumer </span> <span class="glyphicon glyphicon-sort"></span></th>
+<!--                    <th jh-sort-by="costumerId"><span translate="appreservationApp.reservation.costumer"> Costumer </span> <span class="glyphicon glyphicon-sort"></span></th>-->
                     <th jh-sort-by="roomId"><span translate="appreservationApp.reservation.room"> Room </span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="startDate"><span translate="appreservationApp.reservation.startDate"> StartDate </span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="endDate"><span translate="appreservationApp.reservation.endDate"> EndDate </span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -61,8 +61,8 @@
             </thead>
             <tbody>
                 <tr ng-repeat="reservation in reservations track by reservation.id">
-                    <td><a ui-sref="reservation.detail({id:reservation.id})">{{reservation.id}}</a></td>
-                    <td>{{reservation.namaCostumer}}</td>
+                    <td>{{reservation.id}}</td>
+<!--                    <td>{{reservation.namaCostumer}}</td>-->
                     <td>{{reservation.namaRoom}}</td>
                     <td>{{reservation.startDate | date:'medium'}}</td>
                     <td>{{reservation.endDate | date:'medium'}}</td>
@@ -70,7 +70,7 @@
                     <td>{{reservation.createBy}}</td>
                     <td>{{reservation.createDate | date:'medium'}}</td>
                     <td>
-                        <div class="label label-default" style="padding:5px; margin:5px;">{{reservation.status}}</div>
+                        <div class="label label-warning" style="padding:8px; margin:5px;">{{reservation.status}}</div>
                     </td>
 
                     <!--                    <td>{{reservation.status}}</td>-->
